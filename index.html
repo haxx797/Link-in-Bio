@@ -4,37 +4,6 @@
   <meta charset="UTF-8">
   <title>My Links</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    const youtubeApiKey = 'AIzaSyDzAUjShA_TxbbTWDncazOyW4qq2c4j8wI';  // แทนที่ด้วย API Key ของคุณ
-    const youtubeChannelId = 'UCu-3nP8H64ajXhH7dRen0FQ';  // แทนที่ด้วย Channel ID ของคุณ
-
-    function fetchYouTubeProfile() {
-      const youtubeUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${youtubeChannelId}&key=${youtubeApiKey}`;
-
-      fetch(youtubeUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log(data);  // ตรวจสอบข้อมูลที่ได้รับ
-          if (data.items && data.items.length > 0) {
-            const profilePic = data.items[0].snippet.thumbnails.high.url;
-            console.log(profilePic);  // ตรวจสอบ URL ของภาพ
-            document.getElementById('youtubeProfilePic').src = profilePic;
-          } else {
-            console.error('No data found for the channel');
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching YouTube data:', error);
-        });
-    }
-
-    window.onload = fetchYouTubeProfile;
-  </script>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
   <div class="text-center space-y-6">
@@ -42,7 +11,8 @@
 
     <!-- YouTube Profile -->
     <div class="space-y-4">
-      <img id="youtubeProfilePic" src="default_image.jpg" alt="YouTube Profile Picture" class="w-40 h-40 rounded-full mx-auto" />
+      <!-- ใช้ลิงก์ภาพโปรไฟล์จาก YouTube -->
+      <img src="https://yt3.googleusercontent.com/-Zxf6dwFXtVgjpefH-LpFpc1swJGS4U_kIZz5fn7c3iDkiaJDZROE1dyUP7sR2wQlXoF9dcyvZk=s160-c-k-c0x00ffffff-no-rj" alt="YouTube Profile Picture" class="w-40 h-40 rounded-full mx-auto" />
       <a href="https://www.youtube.com/@Haxx797" target="_blank"
          class="block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-xl transition">
         🔴 YouTube
