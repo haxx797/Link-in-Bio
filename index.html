@@ -19,8 +19,10 @@
           return response.json();
         })
         .then(data => {
+          console.log(data);  // ตรวจสอบข้อมูลที่ได้รับ
           if (data.items && data.items.length > 0) {
             const profilePic = data.items[0].snippet.thumbnails.high.url;
+            console.log(profilePic);  // ตรวจสอบ URL ของภาพ
             document.getElementById('youtubeProfilePic').src = profilePic;
           } else {
             console.error('No data found for the channel');
